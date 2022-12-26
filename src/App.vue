@@ -9,8 +9,26 @@
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
+
 export default {
-  components: { TheHeader },
+  components: {
+    TheHeader,
+  },
+  created() {
+    this.$store.dispatch('tryLogin');
+  },
+  watch: {
+    didAutoLogout(curValue, oldValue) {
+      if (curValue && curValue !== oldValue) {
+        this.$router.replace('/coaches');
+      }
+    },
+  },
+  computed: {
+    didAutoLogout() {
+      return this.$store.getters.didAutoLogout;
+    },
+  },
 };
 </script>
 
@@ -28,6 +46,7 @@ html {
 body {
   margin: 0;
 }
+
 .route-enter-from {
   opacity: 0;
   transform: translateY(-30px);
