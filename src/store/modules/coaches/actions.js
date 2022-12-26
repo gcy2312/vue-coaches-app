@@ -35,7 +35,7 @@ export default {
       return;
     }
     const response = await fetch(
-      `https://coach-app-2a219-default-rtdb.firebaseio.com/coaches.jso`
+      `https://coach-app-2a219-default-rtdb.firebaseio.com/coaches.json`
     );
 
     const responseData = await response.json();
