@@ -14,12 +14,10 @@ export default {
   },
   async auth(context, payload) {
     const mode = payload.mode;
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=
-      AIzaSyDCkVavIlFdtmtF4DkdCVZAH5X-w1gMd7s`;
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDCkVavIlFdtmtF4DkdCVZAH5X-w1gMd7s`;
 
     if (mode === 'signup') {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=
-        AIzaSyDCkVavIlFdtmtF4DkdCVZAH5X-w1gMd7s`;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDCkVavIlFdtmtF4DkdCVZAH5X-w1gMd7s`;
     }
     const response = await fetch(url, {
       method: 'POST',
